@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerialDataLogger", "SerialDataLogger\SerialDataLogger.csproj", "{B5053E40-72C8-4257-A7A0-C0BB1EFBD46C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library", "Library\Library.csproj", "{0D29FFAD-55CC-4DFE-BC47-F3F224CF2170}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTresholdService", "Service\SimpleTresholdService.csproj", "{EC865C4A-1880-4E3E-B1EF-7EE550928A75}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimedMovementTracker", "TimedMovementTracker\TimedMovementTracker.csproj", "{2956630A-C3C2-4D1C-8B55-F0091DD3863E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphTimedMeasurements", "SyncfusionBlazorApp1\GraphTimedMeasurements.csproj", "{9CDBD43C-70F3-4C1A-B4D4-143814C6BFEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5053E40-72C8-4257-A7A0-C0BB1EFBD46C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5053E40-72C8-4257-A7A0-C0BB1EFBD46C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5053E40-72C8-4257-A7A0-C0BB1EFBD46C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5053E40-72C8-4257-A7A0-C0BB1EFBD46C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D29FFAD-55CC-4DFE-BC47-F3F224CF2170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D29FFAD-55CC-4DFE-BC47-F3F224CF2170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D29FFAD-55CC-4DFE-BC47-F3F224CF2170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D29FFAD-55CC-4DFE-BC47-F3F224CF2170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC865C4A-1880-4E3E-B1EF-7EE550928A75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC865C4A-1880-4E3E-B1EF-7EE550928A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC865C4A-1880-4E3E-B1EF-7EE550928A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC865C4A-1880-4E3E-B1EF-7EE550928A75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2956630A-C3C2-4D1C-8B55-F0091DD3863E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2956630A-C3C2-4D1C-8B55-F0091DD3863E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2956630A-C3C2-4D1C-8B55-F0091DD3863E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2956630A-C3C2-4D1C-8B55-F0091DD3863E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CDBD43C-70F3-4C1A-B4D4-143814C6BFEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CDBD43C-70F3-4C1A-B4D4-143814C6BFEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CDBD43C-70F3-4C1A-B4D4-143814C6BFEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CDBD43C-70F3-4C1A-B4D4-143814C6BFEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D334BF8B-DF23-4B95-BCF7-1A0B00E9F9F3}
+	EndGlobalSection
+EndGlobal

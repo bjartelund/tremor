@@ -1,0 +1,9 @@
+﻿@page "/"
+@inject ITremorService TremorService
+<PageTitle>I Haz Parkinson</PageTitle>
+
+<h1>Do you have Parkinson?</h1>
+<h1>@(TremorService.IsHighTremor ? "Yes" : "No")</h1>
+<h2>Raw movement: @TremorService.RawMovement</h2>
+
+

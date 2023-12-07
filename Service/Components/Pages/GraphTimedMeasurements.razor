@@ -1,0 +1,38 @@
+﻿@page "/GraphTimedMeasurements"
+@inject ITremorService TremorService
+@using Library
+
+<SfChart>
+    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.DateTime">
+    </ChartPrimaryXAxis>
+
+    <ChartSeriesCollection>
+        <ChartSeries DataSource="@AccelerationMeasurements" XName="XAxis" YName="XValue" Type="ChartSeriesType.Line">
+        </ChartSeries>
+        <ChartSeries DataSource="@AccelerationMeasurements" XName="XAxis" YName="YValue"  Type="ChartSeriesType.Line">
+        </ChartSeries>
+        <ChartSeries DataSource="@AccelerationMeasurements" XName="XAxis" YName="ZValue"  Type="ChartSeriesType.Line">
+        </ChartSeries>
+    </ChartSeriesCollection>
+</SfChart>
+@code {
+    public class ChartData
+    {
+        public DateTime XAxis { get; set;}
+        public int XValue { get; set; }
+        public int YValue { get; set; }
+        public int ZValue {get; set;}
+    }
+    private  List<ChartData> AccelerationMeasurements = new List<ChartData>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        AccelerationMeasurements = TremorService.TimedMeasurements.Select(ToChartData).ToList();    }
+
+    private static ChartData ToChartData(AccelerationMeasurement measurement)
+    {
+        return new ChartData() { XAxis = measurement.Timestamp, YValue = measurement.Acceleration.Y,XValue = measurement.Acceleration.X,ZValue = measurement.Acceleration.Z};
+    }
+
+}
+
