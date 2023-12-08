@@ -16,11 +16,16 @@ public class ChartHub : Hub
     {
         Console.WriteLine("Received measurements");
         var tremorServiceTimedMeasurements = measurements.ToList();
-        foreach (var accelerationMeasurement in tremorServiceTimedMeasurements)
-        {
-            Console.WriteLine(accelerationMeasurement);
-        }
+        var outputPath = Guid.NewGuid().ToString();
+        var reduced = tremorServiceTimedMeasurements
+            .ReducedAccelerationMeasurement()
+            .ToList();
+        File.WriteAllLines(outputPath+".csv",tremorServiceTimedMeasurements
+            .Select(am=>am.ToString()));
+        File.WriteAllLines(outputPath+ "-reduced.csv", reduced
+            .Select(am => am.ToString()));
         _tremorService.TimedMeasurements = tremorServiceTimedMeasurements;
+        _tremorService.ReducedTimedMeasurements = reduced;
     }
     
 }

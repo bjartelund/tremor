@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTresholdService", "Se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimedMovementTracker", "TimedMovementTracker\TimedMovementTracker.csproj", "{2956630A-C3C2-4D1C-8B55-F0091DD3863E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphTimedMeasurements", "SyncfusionBlazorApp1\GraphTimedMeasurements.csproj", "{9CDBD43C-70F3-4C1A-B4D4-143814C6BFEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphTimedMeasurements", "SyncfusionBlazorApp1\GraphTimedMeasurements.csproj", "{9CDBD43C-70F3-4C1A-B4D4-143814C6BFEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadCSVOutput", "ReadCSVOutput\ReadCSVOutput.csproj", "{00231580-8CE0-4187-A91A-D4DC65944BFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{9CDBD43C-70F3-4C1A-B4D4-143814C6BFEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CDBD43C-70F3-4C1A-B4D4-143814C6BFEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CDBD43C-70F3-4C1A-B4D4-143814C6BFEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00231580-8CE0-4187-A91A-D4DC65944BFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00231580-8CE0-4187-A91A-D4DC65944BFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00231580-8CE0-4187-A91A-D4DC65944BFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00231580-8CE0-4187-A91A-D4DC65944BFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

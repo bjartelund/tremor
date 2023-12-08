@@ -5,8 +5,7 @@ using Library;
 Console.WriteLine("Press ESC to stop");
 
 var portReader = new PortReader();
-var signalRConnection = new SignalRClient();
-await signalRConnection.Start();
+
 Console.WriteLine("Timestamp X Y Z");
 List<AccelerationMeasurement> measurements = new();
 while (!(Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape))
@@ -24,4 +23,6 @@ while (!(Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)
         // ignored
     }
 }
+var signalRConnection = new SignalRClient();
+await signalRConnection.Start();
 await signalRConnection.SendMeasurements(measurements);

@@ -18,4 +18,19 @@ public static class AccelerationUtilities
 
     public static AccelerationMeasurement ToAccelerationMeasurement(this Acceleration acceleration) =>
         new(DateTime.Now, acceleration);
+
+    public static IEnumerable<AccelerationMeasurement> ReducedAccelerationMeasurement(
+        this IEnumerable<AccelerationMeasurement> accelerationMeasurements)
+    {
+        var measurements = accelerationMeasurements.ToList();
+        var acceleration = measurements.Select(am => am.Acceleration).ToList();
+        var windowed = acceleration.Zip(acceleration.Skip(1), (a1, a2) => (a1, a2));
+        var reduced = windowed.Select(w => new Acceleration(
+                       w.a2.X - w.a1.X,
+                                  w.a2.Y - w.a1.Y,
+                                  w.a2.Z - w.a1.Z
+                              ));
+        var timestamps = measurements.Select(am => am.Timestamp);
+        return reduced.Zip(timestamps, (a, t) => new AccelerationMeasurement(t, a));
+    }
 }
