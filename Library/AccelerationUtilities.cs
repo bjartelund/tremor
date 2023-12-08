@@ -1,8 +1,12 @@
-﻿namespace Library;
+﻿using FftSharp;
+
+namespace Library;
 
 public static class AccelerationUtilities
 {
     public static int PythagoranTremorVector(Acceleration acceleration) => (int)Math.Sqrt(
+        acceleration.X * acceleration.X + acceleration.Y * acceleration.Y + acceleration.Z * acceleration.Z);
+    public static double PythagoranTremorVectorDouble(Acceleration acceleration) => Math.Sqrt(
         acceleration.X * acceleration.X + acceleration.Y * acceleration.Y + acceleration.Z * acceleration.Z);
 
     public static Acceleration ToAcceleration(string line)
@@ -33,4 +37,18 @@ public static class AccelerationUtilities
         var timestamps = measurements.Select(am => am.Timestamp);
         return reduced.Zip(timestamps, (a, t) => new AccelerationMeasurement(t, a));
     }
+
+    public static IEnumerable<AccelerationFluctuationFrequency> FourierTransform(
+        this IEnumerable<AccelerationMeasurement> accelerationMeasurements)
+    {
+        var measurements = accelerationMeasurements.ToList();
+        var vectors = measurements.Select(am => PythagoranTremorVectorDouble(am.Acceleration)).Take(128).ToArray();
+        var window = new FftSharp.Windows.Hanning();
+        window.ApplyInPlace(vectors);
+        System.Numerics.Complex[] spectrum = FftSharp.FFT.Forward(vectors);
+        double[] psd = FftSharp.FFT.Power(spectrum);
+        double[] freq = FftSharp.FFT.FrequencyScale(psd.Length, 1/0.05);
+        return freq.Zip(psd, (f, p) => new AccelerationFluctuationFrequency(f, p));
+    }
 }
+public record AccelerationFluctuationFrequency(Double Frequency, Double Amplitude);

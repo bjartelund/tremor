@@ -7,17 +7,28 @@
 <h2>Charts</h2>
 <br/>
 <div id="ControlRegion">
-    <SfChart Theme="Theme.Fluent" Title="Reduced acceleration measurements" >
+    <SfChart Theme="Theme.Fluent" Title="Fourier analysis">
+        <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Double">
+        </ChartPrimaryXAxis>
+        <ChartPrimaryYAxis LabelFormat="{value}"></ChartPrimaryYAxis>
+        <ChartSeriesCollection>
+            <ChartSeries DataSource="@AccelerationFluctuationFrequencies" XName="Frequency" YName="Amplitude" Type="ChartSeriesType.Scatter">
+            </ChartSeries>
+        </ChartSeriesCollection>
+        <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
+        <ChartZoomSettings EnableSelectionZooming="true"></ChartZoomSettings>
+    </SfChart>
+    <SfChart Theme="Theme.Fluent" Title="Reduced acceleration measurements">
         <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.DateTime">
-        </ChartPrimaryXAxis>   
+        </ChartPrimaryXAxis>
         <ChartPrimaryYAxis LabelFormat="{value}"></ChartPrimaryYAxis>
         <ChartSeriesCollection>
             <ChartSeries DataSource="@ReducedAccelerationMeasurements" XName="XAxis" YName="XValue" Name="X" Type="ChartSeriesType.Scatter">
-            </ChartSeries>  
+            </ChartSeries>
             <ChartSeries DataSource="@ReducedAccelerationMeasurements" XName="XAxis" YName="YValue" Name="Y" Type="ChartSeriesType.Scatter">
-            </ChartSeries>  
+            </ChartSeries>
             <ChartSeries DataSource="@ReducedAccelerationMeasurements" XName="XAxis" YName="ZValue" Name="Z" Type="ChartSeriesType.Scatter">
-            </ChartSeries>  
+            </ChartSeries>
         </ChartSeriesCollection>
         <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
         <ChartZoomSettings EnableSelectionZooming="true"></ChartZoomSettings>
@@ -64,11 +75,13 @@
     }
     private List<ChartData> AccelerationMeasurements = new List<ChartData>();
     private List<ChartData> ReducedAccelerationMeasurements = new List<ChartData>();
+    private IEnumerable<AccelerationFluctuationFrequency> AccelerationFluctuationFrequencies = new List<AccelerationFluctuationFrequency>();
 
     protected override async Task OnInitializedAsync()
     {
         AccelerationMeasurements = InjectedTremorService.TimedMeasurements.Select(ToChartData).ToList();
-ReducedAccelerationMeasurements = InjectedTremorService.ReducedTimedMeasurements.Select(ToChartData).ToList();
+    ReducedAccelerationMeasurements = InjectedTremorService.ReducedTimedMeasurements.Select(ToChartData).ToList();
+    AccelerationFluctuationFrequencies = InjectedTremorService.FourierTransformed;
     }
 
     private static ChartData ToChartData(AccelerationMeasurement measurement)

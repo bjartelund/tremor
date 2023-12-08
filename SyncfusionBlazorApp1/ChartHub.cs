@@ -20,12 +20,16 @@ public class ChartHub : Hub
         var reduced = tremorServiceTimedMeasurements
             .ReducedAccelerationMeasurement()
             .ToList();
+
+        var fourierTransformed = reduced.FourierTransform();
+
         File.WriteAllLines(outputPath+".csv",tremorServiceTimedMeasurements
             .Select(am=>am.ToString()));
         File.WriteAllLines(outputPath+ "-reduced.csv", reduced
             .Select(am => am.ToString()));
         _tremorService.TimedMeasurements = tremorServiceTimedMeasurements;
         _tremorService.ReducedTimedMeasurements = reduced;
+        _tremorService.FourierTransformed = fourierTransformed;
     }
     
 }
